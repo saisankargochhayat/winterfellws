@@ -233,7 +233,7 @@ $(document).ready(function() {
 	/*============================================
 	Backstretch Images
 	==============================================*/
-	$.backstretch('http://res.cloudinary.com/winterfellws/image/upload/r_0/v1463207498/header-bg_i09mfc.jpg');
+	$.backstretch('assets/header-bg.jpg');
 
 	$('body').append('<img class="preload-image" src="assets/contact-bg.jpg" style="display:none;"/>');
 
@@ -246,7 +246,7 @@ $(document).ready(function() {
 		if (direction=='down'){
 			$.backstretch('assets/contact-bg.jpg');
 		}else{
-			$.backstretch('http://res.cloudinary.com/winterfellws/image/upload/r_0/v1463207498/header-bg_i09mfc.jpg');
+			$.backstretch('assets/header-bg.jpg');
 		}
 	});
 
