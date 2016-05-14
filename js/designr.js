@@ -2,11 +2,11 @@ $(document).ready(function() {
 	/*============================================
 	Page Preloader
 	==============================================*/
-	
+
 	$(window).load(function(){
 		$('#page-loader').fadeOut(500);
-	});	
-	
+	});
+
 	/*============================================
 	Navigation Functions
 	==============================================*/
@@ -14,7 +14,7 @@ $(document).ready(function() {
 		$('#main-nav').removeClass('scrolled');
 	}
 	else{
-		$('#main-nav').addClass('scrolled');    
+		$('#main-nav').addClass('scrolled');
 	}
 
 	$(window).scroll(function(){
@@ -22,7 +22,7 @@ $(document).ready(function() {
 			$('#main-nav').removeClass('scrolled');
 		}
 		else{
-			$('#main-nav').addClass('scrolled');    
+			$('#main-nav').addClass('scrolled');
 		}
 	});
 
@@ -71,7 +71,7 @@ $(document).ready(function() {
 			});
 		});
 	},{offset:'80%'});
-	
+
 	/*============================================
 	Project thumbs - Masonry
 	==============================================*/
@@ -135,16 +135,16 @@ $(document).ready(function() {
 		for (var i = 0; i < slides.length; ++i) {
 			slidesHtml = slidesHtml + '<li><img src='+slides[i]+' alt=""></li>';
 		}
-		
+
 		slidesHtml = slidesHtml + '</ul>';
-		
+
 
 		$('#project-modal').on('show.bs.modal', function () {
 			$(this).find('h1').text(title);
 			$(this).find('.btn').attr('href',link);
 			$(this).find('.project-descr').html(descr);
 			$(this).find('.image-wrapper').addClass('flexslider').html(slidesHtml);
-			
+
 			setTimeout(function(){
 				$('.image-wrapper.flexslider').flexslider({
 					slideshowSpeed: 3000,
@@ -158,7 +158,7 @@ $(document).ready(function() {
 				});
 			},1000);
 		}).modal();
-		
+
 	});
 
 	$('#project-modal').on('hidden.bs.modal', function () {
@@ -169,13 +169,13 @@ $(document).ready(function() {
 			.html('')
 			.flexslider('destroy');
 	});
-	
+
 	/*============================================
 	Twitter Functions
 	==============================================*/
 	var tweetsLength = $('#twitter-slider').data('tweets-length'),
 		widgetID = $('#twitter-slider').data('widget-id');
-	
+
 	var configTweets = {
 	  "id": widgetID,
 	  "domId": '',
@@ -188,23 +188,23 @@ $(document).ready(function() {
 	  "customCallback": handleTweets,
 	  "showInteraction": true
 	};
-	
+
 	twitterFetcher.fetch(configTweets);
 
 	function handleTweets(tweets){
-	
+
 		var x = tweets.length,
 			n = 0,
 			tweetsHtml = '<ul class="slides">';
-			
+
 		while(n < x) {
 			tweetsHtml += '<li>' + tweets[n] + '</li>';
 			n++;
 		}
-		
+
 		tweetsHtml += '</ul>';
 		$('#twitter-slider').html(tweetsHtml);
-		
+
 		$('.twitter_reply_icon').html("<i class='fa fa-reply'></i>");
 		$('.twitter_retweet_icon').html("<i class='fa fa-retweet'></i>");
 		$('.twitter_fav_icon').html("<i class='fa fa-heart'></i>");
@@ -214,8 +214,8 @@ $(document).ready(function() {
 			nextText: '<i class="fa fa-angle-right"></i>',
 			slideshowSpeed: 5000,
 			useCSS: true,
-			controlNav: false, 
-			pauseOnAction: false, 
+			controlNav: false,
+			pauseOnAction: false,
 			pauseOnHover: true,
 			smoothHeight: false
 		});
@@ -229,27 +229,27 @@ $(document).ready(function() {
 		scrollSpyRefresh();
 		waypointsRefresh();
 	});
-	
+
 	/*============================================
 	Backstretch Images
 	==============================================*/
-	$.backstretch('assets/header-bg.jpg');
+	$.backstretch('http://res.cloudinary.com/winterfellws/image/upload/r_0/v1463207498/header-bg_i09mfc.jpg');
 
 	$('body').append('<img class="preload-image" src="assets/contact-bg.jpg" style="display:none;"/>');
 
 	$('#about').waypoint(function(direction){
-	
+
 		if($('.preload-image').length){$('.preload-image').remove();}
-		
+
 		$('.backstretch').remove();
-	
+
 		if (direction=='down'){
 			$.backstretch('assets/contact-bg.jpg');
 		}else{
-			$.backstretch('assets/header-bg.jpg');
+			$.backstretch('http://res.cloudinary.com/winterfellws/image/upload/r_0/v1463207498/header-bg_i09mfc.jpg');
 		}
 	});
-	
+
 	/*============================================
 	Project Hover mask on IE
 	==============================================*/
@@ -260,7 +260,7 @@ $(document).ready(function() {
 			$( this ).stop(true,true).animate({opacity: 0});
 		}
 	);
-	
+
 	/*============================================
 	Placeholder Detection
 	==============================================*/
@@ -293,4 +293,4 @@ $(document).ready(function() {
 		},1000);
 	}
 
-});	
+});
