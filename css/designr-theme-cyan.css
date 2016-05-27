@@ -1660,4 +1660,8 @@ p {
 	padding-top:14px;
 }
 
+@media screen and (max-width: 480px) {
+  #main-nav a.ir-logo {
+    background: url("../assets/logo1.png");
+  }
 }
